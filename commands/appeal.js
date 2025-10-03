@@ -54,3 +54,21 @@ module.exports = class AppealCommand extends Command {
     return interaction.reply({ content: '✅ Your appeal has been submitted to staff.', ephemeral: true });
   }
 };
+
+registerApplicationCommands(registry) {
+  const builder = new SlashCommandBuilder()
+    .setName('appeal')
+    .setDescription('Submit a ban appeal (sends to staff channel)')
+    .addStringOption(opt =>
+      opt.setName('reason')
+        .setDescription('Why should staff reconsider your ban?')
+        .setRequired(true));
+
+  if (process.env.GUILD_ID) {
+    console.log(`[SlashCmd] Registering /appeal to guild ${process.env.GUILD_ID}`);
+    registry.registerChatInputCommand(builder, { guildIds: [process.env.GUILD_ID] });
+  } else {
+    console.log('[SlashCmd] Registering /appeal globally (may take up to 1h)');
+    registry.registerChatInputCommand(builder);
+  }
+}
