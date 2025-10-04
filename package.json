@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EternalMatri3/grimbeard-appeals-bot-clean.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EternalMatri3/grimbeard-appeals-bot-clean/issues"
+  },
+  "homepage": "https://github.com/EternalMatri3/grimbeard-appeals-bot-clean#readme",
   "dependencies": {
     "@sapphire/framework": "^5.3.7",
     "discord.js": "^14.22.1",
